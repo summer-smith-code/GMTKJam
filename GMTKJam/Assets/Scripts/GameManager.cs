@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     #region public resources
     public Camera _camera;
+    public Camera _displayCamera;
     public CameraMovement _cameraMovement;
+    public PlayerInput playerInput;
     #endregion
     public static GameManager Instance { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
