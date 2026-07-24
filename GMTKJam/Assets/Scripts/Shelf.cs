@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Shelf : MiniGameBase, IInteractable
 {
+    [SerializeField] private GameObject _hand;
     public override void EndGame()
     {
         isGameActive = false;
@@ -24,7 +25,6 @@ public class Shelf : MiniGameBase, IInteractable
 
     public override void Start()
     {
-
     }
 
     public override void StartGame()

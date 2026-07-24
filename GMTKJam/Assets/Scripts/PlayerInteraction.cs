@@ -10,6 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     InputAction _interactAction;
     InputAction _clickAction;
 
+    private float _offset = 2f;
+
     [SerializeField] private float _interactionRange = 3.0f; // range within which the player can interact with objects
 
     // handles all player interactions with objects
@@ -65,13 +67,12 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                    Vector3 targetForward = -hitCollider.transform.forward;
+                    Vector3 targetPosition = hitCollider.transform.position - ( hitCollider.transform.forward * _offset);
+                    targetPosition.y = this.gameObject.transform.position.y;
 
-                    targetForward.Normalize();
+                    this.gameObject.transform.position = targetPosition;
+                    GameManager.Instance._cameraMovement.LookAtObject(hitCollider.gameObject);
 
-                    Quaternion targetRotation = Quaternion.LookRotation(targetForward);
-
-                    this.gameObject.transform.rotation = targetRotation;
                     interactable.Interact();
                     break; // Interact with the first interactable object found
                 }
@@ -96,15 +97,9 @@ public class PlayerInteraction : MonoBehaviour
             {
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                Vector3 targetForward = -hitInfo.collider.transform.forward;
+                GameManager.Instance._cameraMovement.LookAtObject(hitInfo.collider.gameObject);
 
-                targetForward.y = 0;
-                targetForward.Normalize();
-
-                Quaternion targetRotation = Quaternion.LookRotation(targetForward);
-
-                this.gameObject.transform.rotation = targetRotation;
-                this.gameObject.transform.position = hitInfo.collider.transform.position + Vector3.forward;
+                // this.gameObject.transform.position = hitInfo.collider.transform.position + Vector3.forward;
                 interactable.Interact();
             }
         }
