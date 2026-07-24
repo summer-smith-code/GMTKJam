@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class LockMiniGame : MiniGameBase
+public class LockMiniGame : MiniGameBase, IInteractable
 {
     public override void EndGame()
     {
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 
     public override void Start()

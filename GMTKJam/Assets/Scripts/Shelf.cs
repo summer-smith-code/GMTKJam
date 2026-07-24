@@ -1,21 +1,38 @@
 using UnityEngine;
 
-public class Shelf : MonoBehaviour, IInteractable
+public class Shelf : MiniGameBase, IInteractable
 {
+    public override void EndGame()
+    {
+        isGameActive = false;
+    }
+
     public void Interact()
     {
         Debug.Log("Interacting with the shelf.");
+        if (isGameActive)
+        {
+            OnEndGame();
+            EndGame();
+        }
+        else
+        {
+            OnStartGame();
+            StartGame();
+        }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void StartGame()
     {
-        
+        isGameActive = true;
+    }
+
+    public override void Update()
+    {
     }
 }
