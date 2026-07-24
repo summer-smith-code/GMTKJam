@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a25bd69700e632c4d90f40661465a451
+guid: 36e6c587b86a41b4b93639831769d7f8
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 14101f12d07328440ad0a9e72dc74c6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: openPBR_shader1
-    second: {fileID: 2100000, guid: 341fafe0d38b8ef4fa0cca9651800f9a, type: 2}
+    second: {fileID: 2100000, guid: 29eb5088dd8b8ca4eb46cca87e48af1f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

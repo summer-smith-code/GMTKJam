@@ -3,7 +3,12 @@ guid: 789ae51594ca07545b57d6782b48705b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: openPBR_shader1
+    second: {fileID: 2100000, guid: 4a4b89bfe4b7a324586ad804828865ef, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
