@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -62,6 +63,15 @@ public class PlayerInteraction : MonoBehaviour
                 IInteractable interactable = hitCollider.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
+                    this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    Vector3 targetForward = -hitCollider.transform.forward;
+
+                    targetForward.Normalize();
+
+                    Quaternion targetRotation = Quaternion.LookRotation(targetForward);
+
+                    this.gameObject.transform.rotation = targetRotation;
                     interactable.Interact();
                     break; // Interact with the first interactable object found
                 }
@@ -84,6 +94,17 @@ public class PlayerInteraction : MonoBehaviour
             IInteractable interactable = hitInfo.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
+                this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                Vector3 targetForward = -hitInfo.collider.transform.forward;
+
+                targetForward.y = 0;
+                targetForward.Normalize();
+
+                Quaternion targetRotation = Quaternion.LookRotation(targetForward);
+
+                this.gameObject.transform.rotation = targetRotation;
+                this.gameObject.transform.position = hitInfo.collider.transform.position + Vector3.forward;
                 interactable.Interact();
             }
         }

@@ -6,13 +6,13 @@ public abstract class MiniGameBase : MonoBehaviour
     protected void OnStartGame()
     {
         GameManager.Instance._cameraMovement.LockCamera(true);
-        GameManager.Instance.playerInput.actions["Move"].Disable();
+        GameManager.Instance._playerInput.actions["Move"].Disable();
         Debug.Log("Lock camera");
     }
     protected void OnEndGame()
     {
         GameManager.Instance._cameraMovement.LockCamera(false);
-        GameManager.Instance.playerInput.actions["Move"].Enable();
+        GameManager.Instance._playerInput.actions["Move"].Enable();
         Debug.Log("Unlock camera");
     }
 
