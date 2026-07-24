@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public Camera _camera;
     public Camera _displayCamera;
     public CameraMovement _cameraMovement;
-    public PlayerInput playerInput;
+    public PlayerInput _playerInput;
+    public PlayerMovement _playerMovement;
     #endregion
     public static GameManager Instance { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
