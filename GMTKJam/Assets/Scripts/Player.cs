@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public Shiver _camShiver;
     public Shiver _handShiver;
 
+    public bool isLocked = false;
+
     private void Awake()
     {
         if (_instance == null)

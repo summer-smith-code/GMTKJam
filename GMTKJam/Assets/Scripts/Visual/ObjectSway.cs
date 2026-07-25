@@ -33,6 +33,9 @@ public class ObjectSway : MonoBehaviour
     {
         Vector2 look = Player._instance._input.actions["Look"].ReadValue<Vector2>();
 
+        if (Player._instance.isLocked)
+            look = Vector2.zero;
+
         InputX = look.x;
         InputY = look.y;
     }
