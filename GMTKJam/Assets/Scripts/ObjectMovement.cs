@@ -7,17 +7,17 @@ public class ObjectMovement : MonoBehaviour
     InputAction _moveAction;
 
     private Vector2 _moveInput;
-    private Rigidbody _rigidbody;
     public bool isSelected;
 
+    private Vector3 _original;
+
     [SerializeField] private Transform _cameraTransform;
-    [SerializeField] private float _speed = 5.0f;
+    private float _speed = .03f;
 
     void Start()
     {
-        _input = GameManager.Instance._playerInput;
-        _moveAction = _input.actions["Move"];
-        _rigidbody = GetComponent<Rigidbody>();
+        _original = this.transform.localPosition;
+        Debug.Log(_original);
     }
 
     void FixedUpdate()
@@ -30,9 +30,23 @@ public class ObjectMovement : MonoBehaviour
 
     private void MoveObject()
     {
+
+        if (_cameraTransform == null)
+            _cameraTransform = GameManager.Instance._fpCamera.transform;
+        if (_input == null)
+        {
+            _input = GameManager.Instance._playerInput;
+            _moveAction = _input.actions["Move"];
+        }
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
         Vector3 move = _cameraTransform.up * _moveInput.y + _cameraTransform.right * _moveInput.x;
         move.z = 0f;
-        _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
+        transform.Translate(move * _speed);
+    }
+
+    public void ResetObject()
+    {
+        Debug.Log("reset");
+        this.gameObject.transform.localPosition = _original;
     }
 }

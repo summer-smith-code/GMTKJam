@@ -57,11 +57,11 @@ public class PlayerInteraction : MonoBehaviour
         Vector3 pos = this.gameObject.transform.position;
         if (Physics.CheckSphere(pos, _interactionRange))
         {
-            Debug.Log("Checked sphere");
+            // Debug.Log("Checked sphere");
             Collider[] hitColliders = Physics.OverlapSphere(pos, _interactionRange);
             foreach (var hitCollider in hitColliders)
             {
-                Debug.Log("Hit colliders");
+               //  Debug.Log("Hit colliders");
                 IInteractable interactable = hitCollider.GetComponent<IInteractable>();
                 if (interactable != null)
                 {

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     // player movement script using the new input system
     PlayerInput _input;
     InputAction _moveAction;
+    public bool isSelected = true;
 
     private Vector2 _moveInput;
     private Rigidbody _rigidbody;
@@ -22,7 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer();
+        if (isSelected) 
+        {
+            MovePlayer();
+        }
     }
 
     private void MovePlayer()

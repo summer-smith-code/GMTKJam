@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Player Input")]
     public PlayerInput _playerInput;
     public PlayerMovement _playerMovement;
+    public GameObject _rightHand;
     #endregion
     public static GameManager Instance { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +31,6 @@ public class GameManager : MonoBehaviour
         }
 
 
-        _cameraMovement = _camera.GetComponent<CameraMovement>();
     }
 
     // Update is called once per frame
