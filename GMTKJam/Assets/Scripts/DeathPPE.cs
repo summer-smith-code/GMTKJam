@@ -7,7 +7,7 @@ public class DeathPPE : MonoBehaviour
     public static DeathPPE _instance;
 
     [SerializeField, Range(0f, 1f)]
-    private float value;
+    private float value; // Intensity of effecs. Higher values equal higher intensity of effects. 0 = no effect, 1 = max effect
 
     public Volume _volume;
 
@@ -22,6 +22,12 @@ public class DeathPPE : MonoBehaviour
     private float maxIntensity_grain = 0.75f;
     private float maxIntensity_chromaticAberration = 0.85f;
     private float maxIntensity_ColorAdjustments_Saturation = -40f;
+
+    [Space]
+
+    [Range(0f, 1f)]
+    public float audioThreshhold = 0.5f; // Threshold at which the audio ambiance starts to play. Value between 0 and 1
+    public AudioSource audioAmbiance;
 
     private void Awake()
     {
@@ -49,6 +55,14 @@ public class DeathPPE : MonoBehaviour
 
     void UpdateEffects()
     {
+        if (audioAmbiance)
+        {
+            if (value > audioThreshhold)
+                audioAmbiance.volume = (value - audioThreshhold) / (1f - audioThreshhold);
+            else
+                audioAmbiance.volume = 0f;
+        }
+
         if( _motionBlur)
             _motionBlur.intensity.value = value * maxIntensity_motionBlur;
 

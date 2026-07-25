@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         _input = GetComponent<PlayerInput>();
         _moveAction = _input.actions["Move"];
         _rigidbody = GetComponent<Rigidbody>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
