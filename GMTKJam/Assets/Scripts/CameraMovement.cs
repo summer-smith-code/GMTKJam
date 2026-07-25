@@ -30,14 +30,9 @@ void Start()
         {
             _inputController.enabled = false;
         }
-        Vector3 targetForward = -obj.transform.forward;
+        _panTilt.PanAxis.Value = obj.transform.eulerAngles.y;
 
-        targetForward.y = 0;
-        targetForward.Normalize();
 
-        Quaternion targetRotation = Quaternion.LookRotation(targetForward);
-        Debug.Log(targetRotation);
-            _panTilt.PanAxis.Value = targetRotation.y;
-            _panTilt.TiltAxis.Value = 0;
+        _panTilt.TiltAxis.Value = 0;
     }
 }
