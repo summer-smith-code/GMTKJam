@@ -9,6 +9,8 @@ public class LockMiniGame : MiniGameBase, IInteractable
     public override void EndGame()
     {
         OnEndGame();
+        _obj.isSelected = false;
+        _obj.ResetObject();
         isGameActive = false;
     }
 
@@ -36,9 +38,8 @@ public class LockMiniGame : MiniGameBase, IInteractable
         {
             _obj = key.GetComponent<ObjectMovement>();
             _obj.isSelected = true;
-            key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.forward * .5f;
+            key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.right * .5f;
             key.transform.position = new Vector3(key.transform.position.x, GameManager.Instance._fpCamera.transform.position.y, key.transform.position.z);
-            key.transform.rotation = this.gameObject.transform.rotation;
         } else
         {
             // player cannot play without key!

@@ -32,7 +32,7 @@ void Start()
         }
         if (isReverse) {
 
-            _panTilt.PanAxis.Value = obj.transform.eulerAngles.x + 90;
+            _panTilt.PanAxis.Value = obj.transform.eulerAngles.x - 90;
 
         } else
         {
