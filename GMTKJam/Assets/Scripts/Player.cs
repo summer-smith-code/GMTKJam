@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public Shiver _handShiver;
     public GameObject _RaycastPivot;
 
+    public bool isLocked = false;
+
     private void Awake()
     {
         if (_instance == null)
