@@ -1,9 +1,13 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Shelf : MiniGameBase, IInteractable
 {
     [SerializeField] private GameObject _hand;
     private ObjectMovement _obj;
+
+    public bool LockCamera { get; set; } = true;
+
     public override void EndGame()
     {
         isGameActive = false;

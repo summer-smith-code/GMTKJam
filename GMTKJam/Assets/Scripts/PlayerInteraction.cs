@@ -10,9 +10,12 @@ public class PlayerInteraction : MonoBehaviour
     InputAction _interactAction;
     InputAction _clickAction;
 
-    private float _offset = 2f;
+    private float _offset = 1.5f;
+    private bool _isLooking;
 
-    [SerializeField] private float _interactionRange = 3.0f; // range within which the player can interact with objects
+    private IInteractable _last;
+
+    private float _interactionRange = .7f; // range within which the player can interact with objects
 
     // handles all player interactions with objects
     void Start()
@@ -52,7 +55,15 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!context.started) return; 
+
+        if (!context.started) return;
+        if (_isLooking)
+        {
+            // if out of range, can cancel
+            GameManager.Instance._cameraMovement.LockCamera(false);
+            _isLooking = false;
+            _last.Interact();
+        }
         Debug.Log("Interact action performed");
         Vector3 pos = this.gameObject.transform.position;
         if (Physics.CheckSphere(pos, _interactionRange))
@@ -69,9 +80,13 @@ public class PlayerInteraction : MonoBehaviour
                     this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     Vector3 targetPosition = hitCollider.transform.position - ( hitCollider.transform.forward * _offset);
                     targetPosition.y = this.gameObject.transform.position.y;
-
-                    this.gameObject.transform.position = targetPosition;
-                    GameManager.Instance._cameraMovement.LookAtObject(hitCollider.gameObject);
+                    if (interactable.LockCamera)
+                    {
+                        this.gameObject.transform.position = targetPosition;
+                        GameManager.Instance._cameraMovement.LookAtObject(hitCollider.gameObject);
+                        _isLooking = true;
+                        _last = interactable;
+                    }
 
                     interactable.Interact();
                     break; // Interact with the first interactable object found
