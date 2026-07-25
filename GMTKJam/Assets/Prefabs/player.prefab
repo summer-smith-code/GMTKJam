@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e402b19284e7de4d8cd8403bc2eae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectSway
-  amount: 0.03
+  amount: 0.015
   maxAmount: 0.06
   smoothAmount: 6
   rotationAmount: 2
