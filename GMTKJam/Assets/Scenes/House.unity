@@ -12740,6 +12740,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4840968872978642144, guid: c45494348436c564e95ee52ef0fef240, type: 3}
   m_PrefabInstance: {fileID: 1533916360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1537870253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537870255}
+  - component: {fileID: 1537870254}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1537870254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537870253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4942c7087fe6a749987827f651b7631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  _camera: {fileID: 0}
+  _displayCamera: {fileID: 0}
+  _cameraMovement: {fileID: 0}
+  _fpCamera: {fileID: 0}
+  _axisController: {fileID: 0}
+  _deathPPE: {fileID: 0}
+  _playerInput: {fileID: 0}
+  _playerMovement: {fileID: 0}
+  _rightHand: {fileID: 0}
+  gameStarted: 0
+  timeTillEnd: 60
+--- !u!4 &1537870255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537870253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.41551, y: 0.91656, z: -0.70083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1547356177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3989694548882361816, guid: 60902adc1d2a3564fb9890b0018434fe, type: 3}
@@ -19177,3 +19232,4 @@ SceneRoots:
   - {fileID: 1787158677}
   - {fileID: 597758400}
   - {fileID: 6727387892628595627}
+  - {fileID: 1537870255}
