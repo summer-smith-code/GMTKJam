@@ -9,6 +9,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
     public override void EndGame()
     {
         OnEndGame();
+        isGameActive = false;
     }
 
     public void Interact()
@@ -42,6 +43,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
             // player cannot play without key!
         }
             OnStartGame();
+        isGameActive = true;
     }
 
     public override void Update()
