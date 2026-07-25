@@ -1644,6 +1644,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isSelected: 1
+  maxSlopeAngle: 45
+  groundCheck: {fileID: 1980865220}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _cameraTransform: {fileID: 1785638333}
   _speed: 1
 --- !u!65 &1980865217
