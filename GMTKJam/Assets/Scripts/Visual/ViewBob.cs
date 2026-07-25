@@ -20,6 +20,10 @@ public class ViewBob : MonoBehaviour
     void Update()
     {
         Vector2 rawMovement = Player._instance._input.actions["Move"].ReadValue<Vector2>();
+
+        if(Player._instance.isLocked)
+            rawMovement = Vector2.zero;
+
         Vector3 inputVector = new Vector3(rawMovement.x, 0f, rawMovement.y);
 
         float sinAmountY = 0f;

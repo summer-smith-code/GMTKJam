@@ -13,7 +13,13 @@ public class ObjectMovement : MonoBehaviour
 
 
     [SerializeField] private Transform _cameraTransform;
-    private float _speed = .03f;
+    [SerializeField] private Transform _cameraForward;
+    private float _speed = 1f;
+
+    public float minX = -1f;
+    public float minY = -1f;
+    public float maxX = .5f;
+    public float maxY = .5f;
 
     void Start()
     {
@@ -31,7 +37,6 @@ public class ObjectMovement : MonoBehaviour
 
     private void MoveObject()
     {
-
         if (_cameraTransform == null)
             _cameraTransform = GameManager.Instance._fpCamera.transform;
         if (_input == null)
@@ -40,9 +45,12 @@ public class ObjectMovement : MonoBehaviour
             _moveAction = _input.actions["Move"];
         }
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
-        Vector3 move = _cameraTransform.up * _moveInput.y + _cameraTransform.right * _moveInput.x;
-        move.z = 0f;
-        transform.Translate(move * _speed);
+        Debug.Log($"{_cameraForward.right}");
+        Vector3 move = _cameraForward.up * _moveInput.y + _cameraForward.right * _moveInput.x;
+
+        transform.position += move * _speed * Time.deltaTime;
+
+        transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, _original.x + minX, _original.x + maxX), Mathf.Clamp(transform.localPosition.y, _original.y + minY, _original.y + maxY), transform.localPosition.z);
     }
 
     public void ResetObject()

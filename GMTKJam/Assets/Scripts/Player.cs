@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public bool _lime;
     public bool _antidoteBottle;
 
+    public bool isLocked = false;
 
     private void Awake()
     {
