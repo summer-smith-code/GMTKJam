@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool _mint;
     public bool _lime;
     public bool _antidoteBottle;
+    public DeathPPE _deathEffects;
 
     public bool isLocked = false;
 
@@ -24,5 +25,10 @@ public class Player : MonoBehaviour
     {
         if (_instance == null)
             _instance = this;
+    }
+
+    private void Update()
+    {
+        _deathEffects.SetValue(GameManager.Instance.GetDifficultyValue());
     }
 }

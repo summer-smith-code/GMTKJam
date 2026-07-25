@@ -102,6 +102,7 @@ Transform:
   m_Children:
   - {fileID: 5655480520574715359}
   - {fileID: 4203880117706044179}
+  - {fileID: 7572607762665580022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &5996265050812640752
@@ -338,6 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d55cee9296c7849b3f806e29cea072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  highlightWidth: 1.75
+  highlightColor: {r: 1, g: 0.78632927, b: 0, a: 1}
 --- !u!136 &2295448218074096339
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -379,6 +382,7 @@ MonoBehaviour:
   _camShiver: {fileID: 3346882439308640718}
   _handShiver: {fileID: 5106070812748544189}
   _RaycastPivot: {fileID: 8882393078688018364}
+  _deathEffects: {fileID: 7586593194517353298}
   isLocked: 0
 --- !u!1 &8039309595469157912
 GameObject:
@@ -1072,3 +1076,76 @@ MonoBehaviour:
   zIntensity: 0.05
   speedMultiplier: 1
   speed: 10
+--- !u!1001 &5871898542957154837
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7894604968094478725}
+    m_Modifications:
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012580114934112274, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_Name
+      value: DeathVolume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+--- !u!4 &7572607762665580022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+  m_PrefabInstance: {fileID: 5871898542957154837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7586593194517353298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4050375220559741255, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+  m_PrefabInstance: {fileID: 5871898542957154837}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b6b5f617912564bba702b24b57632e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
