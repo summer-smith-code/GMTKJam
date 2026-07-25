@@ -66,33 +66,28 @@ public class PlayerInteraction : MonoBehaviour
         }
         Debug.Log("Interact action performed");
         Vector3 pos = this.gameObject.transform.position;
-        if (Physics.CheckSphere(pos, _interactionRange))
+        RaycastHit hit;
+        if (Physics.Raycast(Player._instance._RaycastPivot.transform.position, Player._instance._RaycastPivot.transform.forward, out hit, _interactionRange))
         {
-            // Debug.Log("Checked sphere");
-            Collider[] hitColliders = Physics.OverlapSphere(pos, _interactionRange);
-            foreach (var hitCollider in hitColliders)
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-               //  Debug.Log("Hit colliders");
-                IInteractable interactable = hitCollider.GetComponent<IInteractable>();
-                if (interactable != null)
+                this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                Vector3 targetPosition = hit.collider.transform.position - (hit.collider.transform.forward * _offset);
+                targetPosition.y = this.gameObject.transform.position.y;
+                if (interactable.LockCamera)
                 {
-                    this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                    Vector3 targetPosition = hitCollider.transform.position - ( hitCollider.transform.forward * _offset);
-                    targetPosition.y = this.gameObject.transform.position.y;
-                    if (interactable.LockCamera)
-                    {
-                        this.gameObject.transform.position = targetPosition;
-                        GameManager.Instance._cameraMovement.LookAtObject(hitCollider.gameObject);
-                        _isLooking = true;
-                        _last = interactable;
-                    }
-
-                    interactable.Interact();
-                    break; // Interact with the first interactable object found
+                    this.gameObject.transform.position = targetPosition;
+                    GameManager.Instance._cameraMovement.LookAtObject(hit.collider.gameObject);
+                    _isLooking = true;
+                    _last = interactable;
                 }
+                interactable.Interact();
+                return; // Exit after interacting with the first interactable object
             }
-        } else
+        }
+        else
         {
             Debug.Log(pos);
         }

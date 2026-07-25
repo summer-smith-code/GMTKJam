@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public CameraMovement _cameraMovement;
     public Shiver _camShiver;
     public Shiver _handShiver;
+    public GameObject _RaycastPivot;
 
     private void Awake()
     {

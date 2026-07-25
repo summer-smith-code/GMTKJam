@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Drawer : MonoBehaviour, IInteractable
 {
-    private bool _hasMoved = true;
+    [SerializeField] bool _hasObject;
+    private bool _hasMoved = false;
+    private bool _initialMove = false;
     private Vector3 _startPos;
     private Vector3 _endPos;
     private float _speed = 1f;
@@ -17,15 +19,23 @@ public class Drawer : MonoBehaviour, IInteractable
     {
         if (_hasMoved)
         {
-            Debug.Log("Moving back!");
-            _hasMoved = false;
-            _time = 0f;
+            if (_hasObject && _initialMove)
+            {
+                Debug.Log("Destroying object!");
+                _hasObject = false;
+            } else
+            {
+                Debug.Log("Moving back!");
+                _hasMoved = false;
+                _time = 0f;
+            }
         }
         else
         {
             Debug.Log("Moving forward!");
             _hasMoved = true;
             _time = 0f;
+            _initialMove = true;
         }
     }
 
@@ -43,11 +53,11 @@ public class Drawer : MonoBehaviour, IInteractable
     {
         if (_hasMoved)
         {
-            transform.position = Vector3.Lerp(_endPos, _startPos, _time);
+            transform.position = Vector3.Lerp(_startPos, _endPos, _time);
             
         } else
         {
-            transform.position = Vector3.Lerp(_startPos, _endPos, _time);
+            transform.position = Vector3.Lerp(_endPos, _startPos, _time);
         }
         _time += Time.deltaTime * _speed;
         _time = Mathf.Clamp01(_time);
