@@ -25,6 +25,13 @@ public class DeathPPE : MonoBehaviour
 
     [Space]
 
+    public float shiverThreshold = 0.75f;
+
+    private float maxIntensity_camShiver = 1f;
+    private float maxIntensity_handShiver = 1f;
+
+    [Space]
+
     [Range(0f, 1f)]
     public float audioThreshhold = 0.5f; // Threshold at which the audio ambiance starts to play. Value between 0 and 1
     public AudioSource audioAmbiance;
@@ -77,5 +84,19 @@ public class DeathPPE : MonoBehaviour
 
         if(_colorAdjustements)
             _colorAdjustements.saturation.value = value * maxIntensity_ColorAdjustments_Saturation;
+
+        if(value > shiverThreshold)
+        {
+            Player._instance._camShiver.enabled = true;
+            Player._instance._handShiver.enabled = true;
+        }
+        else
+        {
+            Player._instance._camShiver.enabled = false;
+            Player._instance._handShiver.enabled = false;
+        }
+
+        Player._instance._camShiver.SetMultiplier((value - shiverThreshold) / (1f - shiverThreshold) * maxIntensity_camShiver);
+        Player._instance._handShiver.SetMultiplier((value - shiverThreshold) / (1f - shiverThreshold) * maxIntensity_handShiver);
     }
 }

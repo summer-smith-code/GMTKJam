@@ -31,6 +31,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7894604968094478725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5776403927573011106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5655480520574715359}
+  m_Layer: 0
+  m_Name: CamPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5655480520574715359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776403927573011106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5389045836278957458}
+  m_Father: {fileID: 7894604968094478725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7945491456028357335
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5389045836278957458}
+  - {fileID: 5655480520574715359}
   - {fileID: 4203880117706044179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -345,6 +377,8 @@ MonoBehaviour:
   _input: {fileID: 6189069121779154201}
   _movement: {fileID: 6673636939575282302}
   _cameraMovement: {fileID: 3692649711885099964}
+  _camShiver: {fileID: 3346882439308640718}
+  _handShiver: {fileID: 5106070812748544189}
 --- !u!1 &8039309595469157912
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8299682913058613285}
   - component: {fileID: 4137787364884836286}
+  - component: {fileID: 5106070812748544189}
   m_Layer: 0
   m_Name: HandPivot
   m_TagString: Untagged
@@ -623,6 +658,26 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
+--- !u!114 &5106070812748544189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8336712317040283065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e2449fa3bea943ad46ac9261f005f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shiver
+  defaultPos: {x: 0, y: 0, z: 0}
+  pivot: {fileID: 8299682913058613285}
+  _multiplier: 1
+  xIntensity: 0.1
+  yIntensity: 0.1
+  zIntensity: 0.1
+  speedMultiplier: 1
+  speed: 25
 --- !u!1 &8650313621719721100
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +756,7 @@ GameObject:
   - component: {fileID: 6686107880133252527}
   - component: {fileID: 7500058109733824156}
   - component: {fileID: 3692649711885099964}
+  - component: {fileID: 3346882439308640718}
   m_Layer: 0
   m_Name: FP
   m_TagString: Untagged
@@ -716,13 +772,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113221104634828822}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8299682913058613285}
-  m_Father: {fileID: 7894604968094478725}
+  m_Father: {fileID: 5655480520574715359}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &442877482708916419
 MonoBehaviour:
@@ -856,3 +912,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
   _inputController: {fileID: 7500058109733824156}
   _panTilt: {fileID: 6686107880133252527}
+--- !u!114 &3346882439308640718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113221104634828822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e2449fa3bea943ad46ac9261f005f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shiver
+  defaultPos: {x: 0, y: 0, z: 0}
+  pivot: {fileID: 5389045836278957458}
+  _multiplier: 1
+  xIntensity: 0.05
+  yIntensity: 0.05
+  zIntensity: 0.05
+  speedMultiplier: 1
+  speed: 10
