@@ -13,7 +13,8 @@ public class ObjectMovement : MonoBehaviour
 
 
     [SerializeField] private Transform _cameraTransform;
-    private float _speed = .03f;
+    [SerializeField] private Transform _cameraForward;
+    private float _speed = 1f;
 
     void Start()
     {
@@ -40,9 +41,10 @@ public class ObjectMovement : MonoBehaviour
             _moveAction = _input.actions["Move"];
         }
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
-        Vector3 move = _cameraTransform.up * _moveInput.y + _cameraTransform.right * _moveInput.x;
-        move.z = 0f;
-        transform.Translate(move * _speed);
+        Debug.Log($"{_cameraForward.right}");
+        Vector3 move = _cameraForward.up * _moveInput.y + _cameraForward.right * _moveInput.x;
+
+        transform.position += move * _speed * Time.deltaTime;
     }
 
     public void ResetObject()
