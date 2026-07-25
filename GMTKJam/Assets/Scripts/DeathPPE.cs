@@ -58,7 +58,7 @@ public class DeathPPE : MonoBehaviour
         UpdateEffects();
     }
 
-    public void SetValue(float value) => value = Mathf.Clamp01(value);
+    public void SetValue(float newValue) => value = Mathf.Clamp01(newValue);
 
     void UpdateEffects()
     {

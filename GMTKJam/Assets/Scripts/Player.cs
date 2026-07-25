@@ -12,11 +12,18 @@ public class Player : MonoBehaviour
     public Shiver _handShiver;
     public GameObject _RaycastPivot;
 
+    public DeathPPE _deathEffects;
+
     public bool isLocked = false;
 
     private void Awake()
     {
         if (_instance == null)
             _instance = this;
+    }
+
+    private void Update()
+    {
+        _deathEffects.SetValue(GameManager.Instance.GetDifficultyValue());
     }
 }
