@@ -71,6 +71,7 @@ MonoBehaviour:
   audioThreshhold: 0.5
   audioAmbiance: {fileID: 7580267358550092356}
   heavyBreathLoop: {fileID: 133246793241958650}
+  heartBeatLoop: {fileID: 521755484245299331}
 --- !u!82 &7580267358550092356
 AudioSource:
   m_ObjectHideFlags: 0

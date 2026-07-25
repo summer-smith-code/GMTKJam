@@ -278,25 +278,25 @@ public class Outline : MonoBehaviour {
       case Mode.OutlineAll:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth * 10f);
         break;
 
       case Mode.OutlineVisible:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.LessEqual);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth * 10f);
         break;
 
       case Mode.OutlineHidden:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Greater);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth * 10f);
         break;
 
       case Mode.OutlineAndSilhouette:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.LessEqual);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth * 10f);
         break;
 
       case Mode.SilhouetteOnly:

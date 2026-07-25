@@ -14,6 +14,11 @@ public class PlayerInteraction : MonoBehaviour
     private bool _isLooking;
 
     private IInteractable _last;
+    private GameObject _lastObj;
+    private Outline _lastOutline;
+
+    public float highlightWidth = 3f;
+    public Color highlightColor;
 
     private float _interactionRange = .7f; // range within which the player can interact with objects
 
@@ -83,6 +88,8 @@ public class PlayerInteraction : MonoBehaviour
                     _isLooking = true;
                     _last = interactable;
                 }
+
+                _lastObj = null;
                 interactable.Interact();
                 return; // Exit after interacting with the first interactable object
             }
@@ -117,5 +124,56 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        ProcessHighlightVisuals();
+    }
+
+    void OnSwapLast()
+    {
+        if (_lastOutline != null)
+        {
+            Destroy(_lastOutline);
+            _lastOutline = null;
+        }
+    }
+
+    void ProcessHighlightVisuals()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Player._instance._RaycastPivot.transform.position, Player._instance._RaycastPivot.transform.forward, out hit, _interactionRange))
+        {
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+
+            if (interactable != null)
+            {
+                _lastObj = hit.collider.gameObject;
+            }
+                
+        }
+        else
+        {
+            if(_lastOutline != null)
+            {
+                Destroy(_lastOutline);
+                _lastOutline = null;
+            }
+            
+            _lastObj = null;
+        }
+
+        if (_lastObj == null)
+            return;
+
+        if (_lastObj.GetComponent<Outline>() == null)
+        {
+            if(_lastOutline != null)
+            {
+                Destroy(_lastOutline);
+                _lastOutline = null;
+            }
+
+            _lastOutline = _lastObj.AddComponent<Outline>();
+            _lastOutline.OutlineWidth = highlightWidth;
+            _lastOutline.OutlineColor = highlightColor;
+        }
     }
 }

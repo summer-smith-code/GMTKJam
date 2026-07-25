@@ -339,6 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d55cee9296c7849b3f806e29cea072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  highlightWidth: 1.75
+  highlightColor: {r: 1, g: 0.78632927, b: 0, a: 1}
 --- !u!136 &2295448218074096339
 CapsuleCollider:
   m_ObjectHideFlags: 0
