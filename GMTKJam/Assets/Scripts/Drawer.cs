@@ -8,6 +8,7 @@ public class Drawer : MonoBehaviour, IInteractable
     private bool _initialMove = false;
     private Vector3 _startPos;
     private Vector3 _endPos;
+    private Vector3 _currentPos;
     private float _speed = 1f;
     private float _offset = 0.2f;
 
@@ -17,11 +18,14 @@ public class Drawer : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        _currentPos = transform.position;
+        _hasObject = this.transform.childCount > 1;
         if (_hasMoved)
         {
             if (_hasObject && _initialMove)
             {
                 Debug.Log("Destroying object!");
+                Destroy(this.transform.GetChild(1).gameObject);
                 _hasObject = false;
             } else
             {
@@ -53,11 +57,11 @@ public class Drawer : MonoBehaviour, IInteractable
     {
         if (_hasMoved)
         {
-            transform.position = Vector3.Lerp(_startPos, _endPos, _time);
+            transform.position = Vector3.Lerp(_currentPos, _endPos, _time);
             
         } else
         {
-            transform.position = Vector3.Lerp(_endPos, _startPos, _time);
+            transform.position = Vector3.Lerp(_currentPos, _startPos, _time);
         }
         _time += Time.deltaTime * _speed;
         _time = Mathf.Clamp01(_time);

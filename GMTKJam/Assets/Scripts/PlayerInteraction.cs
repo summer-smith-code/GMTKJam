@@ -8,7 +8,6 @@ public class PlayerInteraction : MonoBehaviour
 
     PlayerInput _input;
     InputAction _interactAction;
-    InputAction _clickAction;
 
     private float _offset = 1.5f;
     private bool _isLooking;
@@ -22,35 +21,27 @@ public class PlayerInteraction : MonoBehaviour
     {
         _input = GetComponent<PlayerInput>();
         _interactAction = _input.actions["Interact"];
-        _clickAction = _input.actions["Click"];
     }
 
     private void OnEnable()
     {
         _input = GetComponent<PlayerInput>();
         _interactAction = _input.actions["Interact"];
-        _clickAction = _input.actions["Click"];
         if (_interactAction == null)
         {
             Debug.LogError("Interact action not found in PlayerInput actions.");
         }
-        if (_clickAction == null)
         {
-            Debug.LogError("Click action not found in PlayerInput actions.");
-        }
-        _interactAction.performed += OnInteract;
-        _clickAction.performed += OnClick;
+            _interactAction.performed += OnInteract;
 
-        _interactAction?.Enable();
-        _clickAction?.Enable();
+            _interactAction?.Enable();
+        }
     }
 
     private void OnDisable()
     {
         _interactAction.performed -= OnInteract;
-        _clickAction.performed -= OnClick;
         _interactAction?.Disable();
-        _clickAction?.Disable();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -90,28 +81,6 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             Debug.Log(pos);
-        }
-    }
-
-    public void OnClick(InputAction.CallbackContext context)
-    {
-        if (!context.started) return;
-        Debug.Log("Clicked");
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        Debug.Log(ray.direction);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo))
-        {
-            IInteractable interactable = hitInfo.collider.GetComponent<IInteractable>();
-            if (interactable != null)
-            {
-                this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                GameManager.Instance._cameraMovement.LookAtObject(hitInfo.collider.gameObject);
-
-                // this.gameObject.transform.position = hitInfo.collider.transform.position + Vector3.forward;
-                interactable.Interact();
-            }
         }
     }
 
