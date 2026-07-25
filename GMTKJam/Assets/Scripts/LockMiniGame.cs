@@ -14,6 +14,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
 
     public void Interact()
     {
+        Debug.Log("Interacted with LockMiniGame");  
         if (isGameActive)
         {
             EndGame();

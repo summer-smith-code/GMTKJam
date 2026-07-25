@@ -21,6 +21,8 @@ public class PlayerInteraction : MonoBehaviour
     public float highlightWidth = 3f;
     public Color highlightColor;
 
+    private Vector3 targetPosition;
+
     private float _interactionRange = 2f; // range within which the player can interact with objects
 
     // handles all player interactions with objects
@@ -80,12 +82,22 @@ public class PlayerInteraction : MonoBehaviour
             {
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                Vector3 targetPosition = hit.collider.transform.position - (hit.collider.transform.forward * _offset);
-                targetPosition.y = this.gameObject.transform.position.y;
+                if (hit.collider.transform.GetComponent<LockMiniGame>() != null)
+                {
+                    targetPosition = hit.collider.transform.position - (hit.collider.transform.right * _offset);
+                    targetPosition.y = this.gameObject.transform.position.y;
+                    GameManager.Instance._cameraMovement.LookAtObject(hit.collider.gameObject, true);
+                }
+                else
+                {
+                    targetPosition = hit.collider.transform.position - (hit.collider.transform.forward * _offset);
+                    targetPosition.y = this.gameObject.transform.position.y;
+                    if (interactable.LockCamera)
+                        GameManager.Instance._cameraMovement.LookAtObject(hit.collider.gameObject, false);
+                }
                 if (interactable.LockCamera)
                 {
                     this.gameObject.transform.position = targetPosition;
-                    GameManager.Instance._cameraMovement.LookAtObject(hit.collider.gameObject);
                     _isLooking = true;
                     _last = interactable;
                 }

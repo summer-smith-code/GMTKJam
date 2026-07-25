@@ -1332,6 +1332,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4840968872978642144, guid: c45494348436c564e95ee52ef0fef240, type: 3}
   m_PrefabInstance: {fileID: 121427607}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &135593068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6866579372983350779, guid: b927db3853477dc4bafb831c16160470, type: 3}
+  m_PrefabInstance: {fileID: 191030045592066056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &147610137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5008,7 +5013,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5083,7 +5088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectMovement
   isSelected: 0
   _cameraTransform: {fileID: 0}
-  _cameraForward: {fileID: 0}
+  _cameraForward: {fileID: 135593068}
   _speed: 1
   maxSpeedLoss: 0.8
   boundary_minX: -1
