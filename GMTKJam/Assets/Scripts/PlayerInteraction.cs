@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private IInteractable _last;
 
-    private float _interactionRange = .7f; // range within which the player can interact with objects
+    private float _interactionRange = 2f; // range within which the player can interact with objects
 
     // handles all player interactions with objects
     void Start()
@@ -65,13 +65,7 @@ public class PlayerInteraction : MonoBehaviour
     {
 
         if (!context.started) return;
-        if (_isLooking)
-        {
-            // if out of range, can cancel
-            GameManager.Instance._cameraMovement.LockCamera(false);
-            _isLooking = false;
-            _last.Interact();
-        }
+
         Debug.Log("Interact action performed");
         RaycastHit hit;
         if (Physics.Raycast(Player._instance._RaycastPivot.transform.position, Player._instance._RaycastPivot.transform.forward, out hit, _interactionRange))
