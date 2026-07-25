@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,17 +15,34 @@ public class ObjectMovement : MonoBehaviour
 
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private Transform _cameraForward;
-    private float _speed = 1f;
+    public float _speed = 1f;
+    float actualSpeed;
+    public float maxSpeedLoss = 0.8f;
 
-    public float minX = -1f;
-    public float minY = -1f;
-    public float maxX = .5f;
-    public float maxY = .5f;
+    [Header("Boundaries")]
+
+    public float boundary_minX = -1f;
+    public float boundary_minY = -1f;
+    public float boundary_maxX = .5f;
+    public float boundary_maxY = .5f;
+
+    [Header("Sway")]
+
+    Vector2 swayDesire;
+    Vector3 swayActual;
+
+    public float maxSway;
+    public float swayAcceleration;
+    public float maxSwaySpeed = 0.5f;
+    public float swayCalculateTime = 1f;
 
     void Start()
     {
+        actualSpeed = _speed;
+        swayDesire = Vector3.zero;
         _original = this.transform.localPosition;
         Debug.Log(_original);
+        InvokeRepeating(nameof(CalculateSway), 0f, swayCalculateTime);
     }
 
     void FixedUpdate()
@@ -32,7 +50,23 @@ public class ObjectMovement : MonoBehaviour
         if (isSelected)
         {
             MoveObject();
+            ProcessSway();
         }
+    }
+
+    private void ProcessSway()
+    {
+        actualSpeed = _speed * (1 - (GameManager.Instance.GetDifficultyValue() * maxSpeedLoss));
+
+        Vector3 desire = _cameraForward.up * swayDesire.y + _cameraForward.right * swayDesire.x;
+        swayActual = Vector3.Lerp(swayActual, desire, Time.deltaTime * swayAcceleration);
+
+        transform.position += swayActual * Time.deltaTime * maxSwaySpeed * GameManager.Instance.GetDifficultyValue(); //= Vector3.Lerp(transform.position, GameManager.Instance.GetDifficultyValue() * swayActual, Time.deltaTime * maxSwaySpeed);
+    }
+
+    private void CalculateSway()
+    {
+        swayDesire = new Vector2(Random.Range(-maxSway, maxSway), Random.Range(-maxSway, maxSway)) * GameManager.Instance.GetDifficultyValue();
     }
 
     private void MoveObject()
@@ -48,9 +82,9 @@ public class ObjectMovement : MonoBehaviour
         Debug.Log($"{_cameraForward.right}");
         Vector3 move = _cameraForward.up * _moveInput.y + _cameraForward.right * _moveInput.x;
 
-        transform.position += move * _speed * Time.deltaTime;
+        transform.position += move * actualSpeed * Time.deltaTime;
 
-        transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, _original.x + minX, _original.x + maxX), Mathf.Clamp(transform.localPosition.y, _original.y + minY, _original.y + maxY), transform.localPosition.z);
+        transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, _original.x + boundary_minX, _original.x + boundary_maxX), Mathf.Clamp(transform.localPosition.y, _original.y + boundary_minY, _original.y + boundary_maxY), transform.localPosition.z);
     }
 
     public void ResetObject()

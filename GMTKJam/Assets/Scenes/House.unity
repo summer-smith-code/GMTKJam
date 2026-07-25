@@ -4446,10 +4446,16 @@ MonoBehaviour:
   isSelected: 0
   _cameraTransform: {fileID: 0}
   _cameraForward: {fileID: 0}
-  minX: -1
-  minY: -1
-  maxX: 7.5
-  maxY: 7.5
+  _speed: 1
+  maxSpeedLoss: 0.8
+  boundary_minX: -1
+  boundary_minY: -1
+  boundary_maxX: 0.5
+  boundary_maxY: 0.5
+  maxSway: 0
+  swayAcceleration: 0
+  maxSwaySpeed: 5
+  swayCalculateTime: 1
 --- !u!1001 &501955926
 PrefabInstance:
   m_ObjectHideFlags: 0

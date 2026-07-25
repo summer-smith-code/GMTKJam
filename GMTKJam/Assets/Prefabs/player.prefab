@@ -379,6 +379,7 @@ MonoBehaviour:
   _camShiver: {fileID: 3346882439308640718}
   _handShiver: {fileID: 5106070812748544189}
   _RaycastPivot: {fileID: 8882393078688018364}
+  isLocked: 0
 --- !u!1 &8039309595469157912
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,10 +508,16 @@ MonoBehaviour:
   isSelected: 0
   _cameraTransform: {fileID: 0}
   _cameraForward: {fileID: 6866579372983350779}
-  minX: -1.15
-  minY: -0.05
-  maxX: 0.25
-  maxY: 1
+  _speed: 1
+  maxSpeedLoss: 0.8
+  boundary_minX: -1
+  boundary_minY: -1
+  boundary_maxX: 0.5
+  boundary_maxY: 0.5
+  maxSway: 0.5
+  swayAcceleration: 1
+  maxSwaySpeed: 1
+  swayCalculateTime: 0.5
 --- !u!1 &8103435181385284553
 GameObject:
   m_ObjectHideFlags: 0
