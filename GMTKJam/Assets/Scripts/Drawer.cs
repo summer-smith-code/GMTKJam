@@ -12,6 +12,10 @@ public class Drawer : MonoBehaviour, IInteractable
     private float _speed = 1f;
     private float _offset = 0.2f;
 
+    public AudioSource source;
+    public AudioClip openSound;
+    public AudioClip closeSound;
+
     private float _time = 0f;
 
     public bool LockCamera { get; set; } = false;
@@ -26,6 +30,8 @@ public class Drawer : MonoBehaviour, IInteractable
         _hasObject = this.transform.childCount > 1;
         if (_hasMoved)
         {
+            source.PlayOneShot(closeSound);
+
             if (_hasObject && _initialMove)
             {
                 Debug.Log("Destroying object!");
@@ -40,6 +46,7 @@ public class Drawer : MonoBehaviour, IInteractable
         }
         else
         {
+            source.PlayOneShot(openSound);
             Debug.Log("Moving forward!");
             _hasMoved = true;
             _time = 0f;

@@ -13,6 +13,9 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
 
     public bool LockCamera { get; set; } = false;
 
+    public AudioSource source;
+    public AudioClip[] interactSounds;
+
     [SerializeField] bool _hasObject;
     private bool _hasMoved = false;
     private bool _initialMove = false;
@@ -40,6 +43,8 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
         }
         if (_hasMoved)
         {
+            source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
+
             if (_hasObject && _initialMove)
             {
                 Debug.Log("Destroying object!");
@@ -55,6 +60,8 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
         }
         else
         {
+            source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
+
             Debug.Log("Moving forward!");
             _hasMoved = true;
             _time = 0f;
