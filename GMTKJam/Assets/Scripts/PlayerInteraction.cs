@@ -134,6 +134,14 @@ public class PlayerInteraction : MonoBehaviour
             {
                 _lastObj = hit.collider.gameObject;
             }
+            else
+            {
+                if (_lastOutline != null)
+                {
+                    Destroy(_lastOutline);
+                    _lastOutline = null;
+                }
+            }
                 
         }
         else

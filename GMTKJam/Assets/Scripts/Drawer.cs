@@ -30,8 +30,6 @@ public class Drawer : MonoBehaviour, IInteractable
         _hasObject = this.transform.childCount > 1;
         if (_hasMoved)
         {
-            source.PlayOneShot(closeSound);
-
             if (_hasObject && _initialMove)
             {
                 Debug.Log("Destroying object!");
@@ -42,6 +40,7 @@ public class Drawer : MonoBehaviour, IInteractable
                 Debug.Log("Moving back!");
                 _hasMoved = false;
                 _time = 0f;
+                source.PlayOneShot(closeSound);
             }
         }
         else

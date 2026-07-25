@@ -43,8 +43,6 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
         }
         if (_hasMoved)
         {
-            source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
-
             if (_hasObject && _initialMove)
             {
                 Debug.Log("Destroying object!");
@@ -56,6 +54,7 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
                 Debug.Log("Moving back!");
                 _hasMoved = false;
                 _time = 0f;
+                source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
             }
         }
         else
