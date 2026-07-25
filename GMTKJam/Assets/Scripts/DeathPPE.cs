@@ -35,6 +35,8 @@ public class DeathPPE : MonoBehaviour
     [Range(0f, 1f)]
     public float audioThreshhold = 0.5f; // Threshold at which the audio ambiance starts to play. Value between 0 and 1
     public AudioSource audioAmbiance;
+    public AudioSource heavyBreathLoop;
+    public AudioSource heartBeatLoop;
 
     private void Awake()
     {
@@ -65,9 +67,17 @@ public class DeathPPE : MonoBehaviour
         if (audioAmbiance)
         {
             if (value > audioThreshhold)
+            {
                 audioAmbiance.volume = (value - audioThreshhold) / (1f - audioThreshhold);
+                heavyBreathLoop.volume = (value - audioThreshhold) / (1f - audioThreshhold);
+                heartBeatLoop.volume = (value - audioThreshhold) / (1f - audioThreshhold);
+            }
             else
+            {
                 audioAmbiance.volume = 0f;
+                heavyBreathLoop.volume = 0f;
+                heartBeatLoop.volume = 0f;
+            }
         }
 
         if( _motionBlur)
