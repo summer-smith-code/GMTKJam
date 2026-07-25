@@ -5,8 +5,29 @@ public class Shelf : MiniGameBase, IInteractable
 {
     [SerializeField] private GameObject _hand;
     private ObjectMovement _obj;
+    private RaycastHit hit;
 
     public bool LockCamera { get; set; } = true;
+
+    public void Click()
+    {
+        Debug.Log("Clicking on the shelf.");    
+        if (isGameActive)
+            if (_obj != null)
+            {
+                Debug.Log("Clicking on the shelf with an object.");
+                RaycastHit hit;
+                if (Physics.Raycast(_obj.transform.position, _obj.transform.forward, out hit))
+                {
+                    Debug.Log("Hit object: " + hit.collider.name);
+                    AntidoteIngredient ingredient = hit.collider.GetComponent<AntidoteIngredient>();
+                    if (ingredient != null)
+                    {
+                        Destroy(ingredient.gameObject);
+                    }
+                }
+            }
+    }
 
     public override void EndGame()
     {

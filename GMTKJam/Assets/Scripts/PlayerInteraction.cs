@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
 
     PlayerInput _input;
     InputAction _interactAction;
+    InputAction _clickAction;
 
     private float _offset = 1.5f;
     private bool _isLooking;
@@ -21,20 +23,33 @@ public class PlayerInteraction : MonoBehaviour
     {
         _input = GetComponent<PlayerInput>();
         _interactAction = _input.actions["Interact"];
+        _clickAction = _input.actions["Attack"];
     }
 
     private void OnEnable()
     {
         _input = GetComponent<PlayerInput>();
         _interactAction = _input.actions["Interact"];
+        _clickAction = _input.actions["Attack"];
         if (_interactAction == null)
         {
             Debug.LogError("Interact action not found in PlayerInput actions.");
         }
+        else
         {
             _interactAction.performed += OnInteract;
 
             _interactAction?.Enable();
+        }
+        if (_clickAction == null)
+        {
+            Debug.LogError("Click action not found in PlayerInput actions.");
+        }
+        else
+        {
+            _clickAction.performed += OnClick;
+
+            _clickAction?.Enable();
         }
     }
 
@@ -42,6 +57,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         _interactAction.performed -= OnInteract;
         _interactAction?.Disable();
+        _clickAction.performed -= OnClick;
+        _clickAction?.Disable();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -56,7 +73,6 @@ public class PlayerInteraction : MonoBehaviour
             _last.Interact();
         }
         Debug.Log("Interact action performed");
-        Vector3 pos = this.gameObject.transform.position;
         RaycastHit hit;
         if (Physics.Raycast(Player._instance._RaycastPivot.transform.position, Player._instance._RaycastPivot.transform.forward, out hit, _interactionRange))
         {
@@ -78,9 +94,17 @@ public class PlayerInteraction : MonoBehaviour
                 return; // Exit after interacting with the first interactable object
             }
         }
-        else
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        Debug.Log("Click action performed");
+
+        if (_last != null)
         {
-            Debug.Log(pos);
+            _last.Click();
+            return; // Exit after interacting with the first interactable object
         }
     }
 

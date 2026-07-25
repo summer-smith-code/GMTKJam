@@ -49,4 +49,22 @@ public class LockMiniGame : MiniGameBase, IInteractable
     public override void Update()
     {
     }
+
+    public void Click()
+    {
+        if (isGameActive)
+            if (_obj != null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(_obj.transform.position, _obj.transform.forward, out hit))
+                {
+                    Lock _lock = hit.collider.GetComponent<Lock>();
+                    if (_lock != null)
+                    {
+                        // Unlock door here
+                        Destroy(_lock.gameObject);
+                    }
+                }
+            }
+    }
 }

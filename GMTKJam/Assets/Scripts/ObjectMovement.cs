@@ -45,7 +45,7 @@ public class ObjectMovement : MonoBehaviour
             _moveAction = _input.actions["Move"];
         }
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
-        Debug.Log($"{_cameraForward.right}");
+        // Debug.Log($"{_cameraForward.right}");
         Vector3 move = _cameraForward.up * _moveInput.y + _cameraForward.right * _moveInput.x;
 
         transform.position += move * _speed * Time.deltaTime;

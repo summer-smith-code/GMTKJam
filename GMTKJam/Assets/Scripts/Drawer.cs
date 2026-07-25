@@ -16,6 +16,10 @@ public class Drawer : MonoBehaviour, IInteractable
 
     public bool LockCamera { get; set; } = false;
 
+    public void Click()
+    {
+    }
+
     public void Interact()
     {
         _currentPos = transform.position;
