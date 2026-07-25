@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,11 +9,17 @@ public class PlayerMovement : MonoBehaviour
     InputAction _moveAction;
     public bool isSelected = true;
 
+    public float maxSlopeAngle = 45f;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+
     private Vector2 _moveInput;
     private Rigidbody _rigidbody;
 
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private float _speed = 5.0f;
+
+    private RaycastHit currentSlopeHit;
 
     void Start()
     {
@@ -34,6 +41,33 @@ public class PlayerMovement : MonoBehaviour
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
         Vector3 move = _cameraTransform.forward * _moveInput.y + _cameraTransform.right * _moveInput.x;
         move.y = 0f; // Prevent vertical movement
-        _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
+
+        if (OnSlope()) // Slope detected... Move as if on slope
+        {
+            Debug.Log("Slope detected");
+            Vector3 slopeMoveDirection = GetSlopeMoveDirection(move);
+            _rigidbody.AddForce(slopeMoveDirection * _speed, ForceMode.VelocityChange);
+        }
+        else // No slope detected, move as if on flat ground
+            _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
+    }
+
+    private bool OnSlope()
+    {
+        // Cast a ray down from the center of the player
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out currentSlopeHit, 0.1f, groundLayer))
+        {
+            float angle = Vector3.Angle(Vector3.up, currentSlopeHit.normal);
+            // Returns true if surface is angled but within climbable limit
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopeMoveDirection(Vector3 moveDirection)
+    {
+        // Projects movement onto the slope plane using the hit normal
+        return Vector3.ProjectOnPlane(moveDirection, currentSlopeHit.normal).normalized;
     }
 }
