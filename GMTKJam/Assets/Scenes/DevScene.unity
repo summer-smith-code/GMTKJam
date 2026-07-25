@@ -615,6 +615,63 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &829718974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.665516
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7880603
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.651056
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065169635288578019, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012580114934112274, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
+      propertyPath: m_Name
+      value: DeathVolume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1403dac0e8d314c48b30764b2cb238b6, type: 3}
 --- !u!1 &835710924
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,9 +882,12 @@ MonoBehaviour:
   _cameraMovement: {fileID: 835710929}
   _fpCamera: {fileID: 1785638331}
   _axisController: {fileID: 1785638334}
+  _deathPPE: {fileID: 0}
   _playerInput: {fileID: 1980865215}
   _playerMovement: {fileID: 1980865216}
   _rightHand: {fileID: 1525466185}
+  gameStarted: 0
+  timeTillEnd: 120
 --- !u!4 &883637308
 Transform:
   m_ObjectHideFlags: 0
@@ -1506,6 +1566,7 @@ GameObject:
   - component: {fileID: 1980865215}
   - component: {fileID: 1980865221}
   - component: {fileID: 1980865222}
+  - component: {fileID: 1980865223}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1784,7 +1845,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d55cee9296c7849b3f806e29cea072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  _interactionRange: 3
+--- !u!114 &1980865223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980865214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e778a4a716056048861ebf5d56c5eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  _input: {fileID: 1980865215}
+  _movement: {fileID: 1980865216}
+  _cameraMovement: {fileID: 835710929}
+  _camShiver: {fileID: 0}
+  _handShiver: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1798,3 +1875,4 @@ SceneRoots:
   - {fileID: 161213629}
   - {fileID: 1841634659}
   - {fileID: 883637308}
+  - {fileID: 829718974}

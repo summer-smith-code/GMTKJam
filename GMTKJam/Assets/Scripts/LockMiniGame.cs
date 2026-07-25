@@ -34,7 +34,9 @@ public class LockMiniGame : MiniGameBase, IInteractable
         {
             _obj = key.GetComponent<ObjectMovement>();
             _obj.isSelected = true;
-            key.transform.position = GameManager.Instance._rightHand.transform.position;
+            key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.forward * .5f;
+            key.transform.position = new Vector3(key.transform.position.x, GameManager.Instance._fpCamera.transform.position.y, key.transform.position.z);
+            key.transform.rotation = this.gameObject.transform.rotation;
         } else
         {
             // player cannot play without key!
