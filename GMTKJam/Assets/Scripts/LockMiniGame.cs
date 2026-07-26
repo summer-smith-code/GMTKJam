@@ -10,6 +10,9 @@ public class LockMiniGame : MiniGameBase, IInteractable
     private ObjectMovement _obj;
     private bool isLocked = true;
 
+    public AudioSource source;
+    public AudioClip unlockSound;
+
     public override void EndGame()
     {
         OnEndGame();
@@ -93,6 +96,9 @@ public class LockMiniGame : MiniGameBase, IInteractable
                     Lock _lock = hit.collider.GetComponent<Lock>();
                     if (_lock != null)
                     {
+                        if (source)
+                            source.PlayOneShot(unlockSound);
+
                         this.GetComponent<HingeJoint>().limits = _hingeJoint.limits;
                         EndGame();
                         Destroy(key);

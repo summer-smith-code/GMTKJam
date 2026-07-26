@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     private RaycastHit currentSlopeHit;
 
+    public float footstepFreq = 1f;
+    float currentFootstepTimer;
+    public AudioSource footstepSource;
+    public AudioClip[] footstepSounds;
+
     void Start()
     {
         _input = GetComponent<PlayerInput>();
@@ -29,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        currentFootstepTimer = footstepFreq;
     }
 
     void FixedUpdate()
@@ -45,6 +52,19 @@ public class PlayerMovement : MonoBehaviour
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
         Vector3 move = _cameraTransform.forward * _moveInput.y + _cameraTransform.right * _moveInput.x;
         move.y = 0f; // Prevent vertical movement
+
+        if(move.magnitude > 0f)
+        {
+            currentFootstepTimer -= Time.deltaTime;
+
+            if(currentFootstepTimer < 0f)
+            {
+                footstepSource.pitch = Random.Range(0.9f, 1.1f);
+                footstepSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
+
+                currentFootstepTimer = footstepFreq;
+            }
+        }
 
         if (OnSlope()) // Slope detected... Move as if on slope
         {

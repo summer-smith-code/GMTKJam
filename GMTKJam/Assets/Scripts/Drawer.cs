@@ -15,6 +15,7 @@ public class Drawer : MonoBehaviour, IInteractable
     public AudioSource source;
     public AudioClip openSound;
     public AudioClip closeSound;
+    public AudioClip pickupSound;
 
     private float _time = 0f;
 
@@ -36,6 +37,9 @@ public class Drawer : MonoBehaviour, IInteractable
                 Destroy(this.transform.GetChild(1).gameObject);
                 Player._instance._magnesium = true;
                 _hasObject = false;
+
+                if (source)
+                    source.PlayOneShot(pickupSound);
             } else
             {
                 Debug.Log("Moving back!");

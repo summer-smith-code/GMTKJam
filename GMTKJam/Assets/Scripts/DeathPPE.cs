@@ -48,6 +48,10 @@ public class DeathPPE : MonoBehaviour
 
     void Start()
     {
+        audioAmbiance.volume = 0f;
+        heavyBreathLoop.volume = 0f;
+        heartBeatLoop.volume = 0f;
+
         _motionBlur = _volume.profile.TryGet<MotionBlur>(out var motionBlur) ? motionBlur : null;
         _vignette = _volume.profile.TryGet<Vignette>(out var vignette) ? vignette : null;
         _grain = _volume.profile.TryGet<FilmGrain>(out var grain) ? grain : null;

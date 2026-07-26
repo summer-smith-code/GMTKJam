@@ -1,11 +1,15 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Shelf : MiniGameBase, IInteractable
 {
     [SerializeField] private GameObject _hand;
     private ObjectMovement _obj;
     private RaycastHit hit;
+
+    public AudioSource source;
+    public AudioClip pickupSound;
 
     public bool LockCamera { get; set; } = true;
 
@@ -27,11 +31,17 @@ public class Shelf : MiniGameBase, IInteractable
                         {
                             Destroy(ingredient.gameObject);
                             Player._instance._magnesium = true;
+
+                            if (source)
+                                source.PlayOneShot(pickupSound);
                         }
                     } else if (hit.collider.CompareTag("key"))
                         {
                         hit.collider.gameObject.transform.position = new Vector3(1000, 1000, 1000);
                         Player._instance.hasKey = true;
+
+                        if (source)
+                            source.PlayOneShot(pickupSound);
                     }
                 }
             }
