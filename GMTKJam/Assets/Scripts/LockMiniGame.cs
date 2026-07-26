@@ -19,21 +19,27 @@ public class LockMiniGame : MiniGameBase, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Interacted with LockMiniGame");
-        if (isLocked)
+        if (Player._instance.hasKey)
         {
-            if (isGameActive)
+            Debug.Log("Interacted with LockMiniGame");
+            if (isLocked)
             {
-                EndGame();
+                if (isGameActive)
+                {
+                    EndGame();
+                }
+                else
+                {
+                    StartGame();
+                }
             }
             else
             {
-                StartGame();
+                Debug.Log("Unlocked!");
             }
-        }
-        else
+        } else
         {
-            Debug.Log("Unlocked!");
+            Debug.Log("You need a key to interact with this lock.");
         }
     }
 

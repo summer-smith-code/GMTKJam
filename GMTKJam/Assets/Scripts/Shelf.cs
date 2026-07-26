@@ -20,10 +20,17 @@ public class Shelf : MiniGameBase, IInteractable
                 if (Physics.Raycast(_obj.transform.position, _obj.transform.forward, out hit))
                 {
                     Debug.Log("Hit object: " + hit.collider.name);
-                    AntidoteIngredient ingredient = hit.collider.GetComponent<AntidoteIngredient>();
-                    if (ingredient != null)
+                    if (hit.collider.CompareTag("antidoteIngredient"))
                     {
-                        Destroy(ingredient.gameObject);
+                        AntidoteIngredient ingredient = hit.collider.GetComponent<AntidoteIngredient>();
+                        if (ingredient != null)
+                        {
+                            Destroy(ingredient.gameObject);
+                        }
+                    } else if (hit.collider.CompareTag("key"))
+                        {
+                        hit.collider.gameObject.transform.position = new Vector3(1000, 1000, 1000);
+                        Player._instance.hasKey = true;
                     }
                 }
             }

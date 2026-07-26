@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     public bool _antidoteBottle;
     public DeathPPE _deathEffects;
 
+    // other items
+    public bool hasKey;
+
     public bool isLocked = false;
 
     private void Awake()
