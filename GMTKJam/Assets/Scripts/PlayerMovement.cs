@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(hit.transform == null && !OnSlope())
         {
-            _rigidbody.AddForce(Vector3.down * 9.81f * 1.75f, ForceMode.VelocityChange);
+            _rigidbody.AddForce(Vector3.down * 9.81f * 1.75f);
         }
     }
 
