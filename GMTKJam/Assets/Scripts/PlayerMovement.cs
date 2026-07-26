@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (isSelected) 
         {
             MovePlayer();
-            //SnapToFloor();
+            SnapToFloor();
         }
     }
 
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Slope detected");
             Vector3 slopeMoveDirection = GetSlopeMoveDirection(move);
-            _rigidbody.AddForce(slopeMoveDirection * _speed * 4f, ForceMode.VelocityChange);
+            _rigidbody.AddForce(slopeMoveDirection * _speed, ForceMode.VelocityChange);
         }
         else // No slope detected, move as if on flat ground
             _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
@@ -79,18 +79,18 @@ public class PlayerMovement : MonoBehaviour
     private void SnapToFloor()
     {
         RaycastHit hit;
-        Physics.Raycast(groundCheck.position, Vector3.down, out hit, 999f, groundLayer);
+        Physics.Raycast(groundCheck.position, Vector3.down, out hit, 0.4f, groundLayer);
 
-        if(hit.transform != null)
+        if(hit.transform == null && !OnSlope())
         {
-            transform.position = new Vector3(transform.position.x, hit.transform.position.y + _height, transform.position.z);
+            _rigidbody.AddForce(Vector3.down * 9.81f * 1.75f, ForceMode.VelocityChange);
         }
     }
 
     private bool OnSlope()
     {
         // Cast a ray down from the center of the player
-        if (Physics.Raycast(groundCheck.position, Vector3.down, out currentSlopeHit, 0.1f, groundLayer))
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out currentSlopeHit, .5f, groundLayer))
         {
             float angle = Vector3.Angle(Vector3.up, currentSlopeHit.normal);
             // Returns true if surface is angled but within climbable limit
