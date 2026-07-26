@@ -63,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 626e47638795b4c4a8e9c27237bf197d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4971490658922712043}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 626e47638795b4c4a8e9c27237bf197d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2906296420748914869}
   m_SourcePrefab: {fileID: 100100000, guid: 626e47638795b4c4a8e9c27237bf197d, type: 3}
 --- !u!1 &1362745457134303642 stripped
 GameObject:
@@ -81,3 +84,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fbdd70b12251a4c94d2235e8182740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AntidoteIngredient
+  parent: {fileID: 0}
+--- !u!65 &-2906296420748914869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362745457134303642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.33, y: 17.74, z: 16.36}
+  m_Center: {x: 0, y: 5.227249, z: 0.000011444092}
