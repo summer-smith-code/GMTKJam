@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Slope detected");
             Vector3 slopeMoveDirection = GetSlopeMoveDirection(move);
-            _rigidbody.AddForce(slopeMoveDirection * _speed, ForceMode.VelocityChange);
+            _rigidbody.AddForce(slopeMoveDirection * _speed * 4f, ForceMode.VelocityChange);
         }
         else // No slope detected, move as if on flat ground
             _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
