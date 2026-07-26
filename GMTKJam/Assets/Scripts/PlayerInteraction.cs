@@ -77,6 +77,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Player._instance._RaycastPivot.transform.position, Player._instance._RaycastPivot.transform.forward, out hit, _interactionRange))
         {
+            Debug.Log(hit.collider.gameObject.name.ToString());
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
