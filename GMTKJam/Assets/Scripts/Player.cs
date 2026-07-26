@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Shiver _camShiver;
     public Shiver _handShiver;
     public GameObject _RaycastPivot;
+    public GameObject _cameraForward;
 
     // antidote items
     public bool _magnesium;
