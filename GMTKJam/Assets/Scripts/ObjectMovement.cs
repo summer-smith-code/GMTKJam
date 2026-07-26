@@ -11,6 +11,7 @@ public class ObjectMovement : MonoBehaviour
     public bool isSelected;
 
     private Vector3 _original;
+    [SerializeField] private bool _override;
 
 
     [SerializeField] private Transform _cameraTransform;
@@ -74,6 +75,10 @@ public class ObjectMovement : MonoBehaviour
 
     private void MoveObject()
     {
+        if (_override)
+        {
+            _original = this.transform.localPosition;
+        }
         if (_cameraTransform == null)
             _cameraTransform = GameManager.Instance._fpCamera.transform;
         if (_input == null)

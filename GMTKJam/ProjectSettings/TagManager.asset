@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - antidoteIngredient
+  - key
   layers:
   - Default
   - TransparentFX
