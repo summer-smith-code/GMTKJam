@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98f5ed230950bbf4ca46e06bf34f3352
+guid: e63dbc1ecd4cc6c409f37a44a08b6040
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -12,8 +12,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: bce6ad38625693b45924dd8bf40ef327, type: 2}
+      name: Metal2
+    second: {fileID: 2100000, guid: d2f921e698d1ef042b421cfe182982a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 4a4b89bfe4b7a324586ad804828865ef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
