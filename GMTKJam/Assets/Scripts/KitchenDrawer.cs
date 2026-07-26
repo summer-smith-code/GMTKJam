@@ -15,6 +15,7 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
 
     public AudioSource source;
     public AudioClip[] interactSounds;
+    public AudioClip pickupSound;
 
     [SerializeField] bool _hasObject;
     private bool _hasMoved = false;
@@ -34,6 +35,8 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        source.pitch = Random.Range(0.9f, 1.1f);
+
         _currentPos = transform.rotation;
         if (!_hasObject)
             _hasObject = this.transform.childCount > 1;
@@ -49,6 +52,9 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
                 Destroy(this.transform.parent.GetChild(1).gameObject);
                 Player._instance._lime = true;
                 _hasObject = false;
+
+                if (source)
+                    source.PlayOneShot(pickupSound);
             }
             else
             {
