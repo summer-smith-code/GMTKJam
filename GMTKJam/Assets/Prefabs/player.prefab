@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isSelected: 1
-  maxSlopeAngle: 60
+  maxSlopeAngle: 75
   groundCheck: {fileID: 4203880117706044179}
   groundLayer:
     serializedVersion: 2
