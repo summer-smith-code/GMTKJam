@@ -13,18 +13,24 @@ public class TypeScroll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        textMeshPro = GetComponent<TMPro.TextMeshProUGUI>();
-        StartCoroutine(ShowText());
     }
 
     IEnumerator ShowText()
     {
+        Debug.Log("Working!");
         for (int i = 0; i <= fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
             textMeshPro.text = currentText;
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("Enabled!");
+        textMeshPro = GetComponent<TMPro.TextMeshProUGUI>();
+        StartCoroutine(ShowText());
     }
 
     // Update is called once per frame
