@@ -31,5 +31,13 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _deathEffects.SetValue(GameManager.Instance.GetDifficultyValue());
+
+        CheckForWinState();
+    }
+
+    private void CheckForWinState()
+    {
+        if(_magnesium && _mint && _lime && _antidoteBottle)
+            GameManager.Instance.EndGame(false);
     }
 }
