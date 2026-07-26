@@ -11626,8 +11626,100 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3208088826552310098, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155466817}
+    - targetCorrespondingSourceObject: {fileID: 3208088826552310098, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155466824}
+    - targetCorrespondingSourceObject: {fileID: -2833927808822756805, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155466816}
+    - targetCorrespondingSourceObject: {fileID: -2833927808822756805, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155466821}
   m_SourcePrefab: {fileID: 100100000, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+--- !u!1 &1155466814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2833927808822756805, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+  m_PrefabInstance: {fileID: 1155466813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1155466815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208088826552310098, guid: dbd0bdb0432689f4f8a766c836be6abd, type: 3}
+  m_PrefabInstance: {fileID: 1155466813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155466816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155466814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f5bed885f872a409111712d3134acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
+  pivot: 1
+  _hasObject: 0
+--- !u!114 &1155466817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155466815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f5bed885f872a409111712d3134acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
+  pivot: 0
+  _hasObject: 0
+--- !u!65 &1155466821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155466814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.106903, y: 173.98235, z: 10.597175}
+  m_Center: {x: -23.053452, y: 86.99117, z: -5.298551}
+--- !u!65 &1155466824
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155466815}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 46.106903, y: 173.98235, z: 10.597175}
+  m_Center: {x: 23.053452, y: 86.99117, z: -5.298551}
 --- !u!1001 &1156497880
 PrefabInstance:
   m_ObjectHideFlags: 0
