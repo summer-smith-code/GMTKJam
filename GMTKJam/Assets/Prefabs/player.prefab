@@ -182,7 +182,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _cameraTransform: {fileID: 5389045836278957458}
-  _speed: 0.75
+  _speed: 0.6
   _height: 1
   footstepFreq: 0.35
   footstepSource: {fileID: 3800674503726868634}
@@ -192,6 +192,49 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 81c1150b44e6a1d4faaea6e80f795c45, type: 3}
   - {fileID: 8300000, guid: bbe55c42378691445a966fcb663a816e, type: 3}
   - {fileID: 8300000, guid: f8be280f1df598748a9571c93b63d5c7, type: 3}
+  limpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.15779203
+      value: 1.0062485
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5018102
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9940796
+      value: 0.006248474
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  limpIntensity: 0
 --- !u!114 &6189069121779154201
 MonoBehaviour:
   m_ObjectHideFlags: 0

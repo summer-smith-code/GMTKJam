@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource footstepSource;
     public AudioClip[] footstepSounds;
 
+    float currentCurveEval;
+    float curveLength = 1f;
+    public AnimationCurve limpCurve;
+    public float limpIntensity;
+
     void Start()
     {
         _input = GetComponent<PlayerInput>();
@@ -36,6 +41,16 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         currentFootstepTimer = footstepFreq;
+    }
+
+    private void Update()
+    {
+        currentCurveEval += Time.deltaTime;
+
+        if (currentCurveEval >= curveLength)
+            currentCurveEval = 0f;
+
+        limpIntensity = GameManager.Instance.GetDifficultyValue();
     }
 
     void FixedUpdate()
@@ -50,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
-        Vector3 move = _cameraTransform.forward * _moveInput.y + _cameraTransform.right * _moveInput.x;
+        Vector3 move = (_cameraTransform.forward * _moveInput.y + _cameraTransform.right * _moveInput.x);
         move.y = 0f; // Prevent vertical movement
 
         if(move.magnitude > 0f)
@@ -66,14 +81,16 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        float currentSpeed = Mathf.Lerp(_speed, limpCurve.Evaluate(currentCurveEval) * (_speed * 0.8f), limpIntensity);
+
         if (OnSlope()) // Slope detected... Move as if on slope
         {
             Debug.Log("Slope detected");
             Vector3 slopeMoveDirection = GetSlopeMoveDirection(move);
-            _rigidbody.AddForce(slopeMoveDirection * _speed, ForceMode.VelocityChange);
+            _rigidbody.AddForce(slopeMoveDirection * currentSpeed, ForceMode.VelocityChange);
         }
         else // No slope detected, move as if on flat ground
-            _rigidbody.AddForce(move.normalized * _speed, ForceMode.VelocityChange);
+            _rigidbody.AddForce(move.normalized * currentSpeed, ForceMode.VelocityChange);
     }
 
     private void SnapToFloor()
