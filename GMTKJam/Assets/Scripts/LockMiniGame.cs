@@ -36,10 +36,12 @@ public class LockMiniGame : MiniGameBase, IInteractable
             else
             {
                 Debug.Log("Unlocked!");
+                GameManager.Instance._cameraMovement.LockCamera(false);
             }
         } else
         {
             Debug.Log("You need a key to interact with this lock.");
+            GameManager.Instance._cameraMovement.LockCamera(false);
         }
     }
 
@@ -57,6 +59,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
             _obj.isSelected = true;
             key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.right * .5f;
             key.transform.position = new Vector3(key.transform.position.x, GameManager.Instance._fpCamera.transform.position.y, key.transform.position.z);
+            key.transform.rotation = Quaternion.LookRotation(this.gameObject.transform.right);
         } else
         {
             // player cannot play without key!
@@ -83,6 +86,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
                     {
                         this.GetComponent<HingeJoint>().limits = _hingeJoint.limits;
                         EndGame();
+                        Destroy(key);
                     }
                 }
             }
