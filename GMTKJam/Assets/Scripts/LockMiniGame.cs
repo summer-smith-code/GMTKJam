@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
@@ -41,10 +42,17 @@ public class LockMiniGame : MiniGameBase, IInteractable
         } else
         {
             Debug.Log("You need a key to interact with this lock.");
+            GameManager.Instance._text.text = "You need a key to unlock this door.";
+            StartCoroutine(Wait());
             GameManager.Instance._cameraMovement.LockCamera(false);
         }
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
+        GameManager.Instance._text.text = "";
+    }
     public override void Start()
     {
         // any set up code for the mini-game can go here
@@ -60,6 +68,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
             key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.right * .5f;
             key.transform.position = new Vector3(key.transform.position.x, GameManager.Instance._fpCamera.transform.position.y, key.transform.position.z);
             key.transform.rotation = Quaternion.LookRotation(this.gameObject.transform.right);
+            key.transform.rotation = Quaternion.Euler(key.transform.rotation.x, key.transform.rotation.y+180, key.transform.rotation.z + 90);
         } else
         {
             // player cannot play without key!
