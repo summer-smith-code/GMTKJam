@@ -2697,6 +2697,8 @@ PlayableDirector:
     value: {fileID: 681397880}
   - key: {fileID: 3531956926326168802, guid: e33385d2f865ff64f8c08287babce00f, type: 2}
     value: {fileID: 987410568}
+  - key: {fileID: 8207937583643684798, guid: e33385d2f865ff64f8c08287babce00f, type: 2}
+    value: {fileID: 1267096778}
   m_ExposedReferences:
     m_References:
     - a1297b74edb614d40848472853a3bcea: {fileID: 329554997}
@@ -14739,6 +14741,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1971054390141033141, guid: 956aabbc54136314bb2ffbc2909b8643, type: 3}
   m_PrefabInstance: {fileID: 1252255142}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1267096778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1267096780}
+  - component: {fileID: 1267096779}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1267096779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267096778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdc964134d341e4a93d9661832f4b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cinematic
+--- !u!4 &1267096780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267096778}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.042, y: 2.11514, z: -11.10865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1267439957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26487,6 +26533,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1267096780}
   - {fileID: 265338407}
   - {fileID: 1294171416}
   - {fileID: 3720656705990755147}
