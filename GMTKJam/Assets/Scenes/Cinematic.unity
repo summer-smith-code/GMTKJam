@@ -2692,6 +2692,8 @@ PlayableDirector:
     value: {fileID: 1987883023}
   - key: {fileID: -2071095973865363947, guid: e33385d2f865ff64f8c08287babce00f, type: 2}
     value: {fileID: 1617880767}
+  - key: {fileID: 9155815706963904725, guid: e33385d2f865ff64f8c08287babce00f, type: 2}
+    value: {fileID: 1929495571}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &265338407
@@ -6591,7 +6593,7 @@ Transform:
   m_GameObject: {fileID: 597758395}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00030560163, y: -0.73371714, z: 0.0007092624, w: -0.6794547}
-  m_LocalPosition: {x: -12.1088505, y: 0.66444, z: -9.429171}
+  m_LocalPosition: {x: -12.264421, y: 0.66444, z: -9.429171}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21312,7 +21314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600bca04d73e91446b4cea0561e909aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypeScroll
-  delay: 0
+  delay: 7
   fullText: You've poisoned yourself
   currentText: 
 --- !u!95 &1929495574
@@ -21357,7 +21359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: You've poisoned yourself.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9dfebb388ea9ce4894a70f27bdf32ff, type: 2}
   m_sharedMaterial: {fileID: -1207764063778557610, guid: c9dfebb388ea9ce4894a70f27bdf32ff, type: 2}
