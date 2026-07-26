@@ -16530,9 +16530,9 @@ MonoBehaviour:
   _bottleSpawnPoints:
   - {fileID: 135673250}
   - {fileID: 1852257119}
-  _mint: {fileID: 219696076}
-  _magnesium: {fileID: 366729812}
-  _lime: {fileID: 1238952355}
+  _mint: {fileID: 5266031402473540122, guid: 7594265f970a67b44a810b33e9e6256d, type: 3}
+  _magnesium: {fileID: 1362745457134303642, guid: 5e20b3e81e1c92948a72fd0cd1d84c87, type: 3}
+  _lime: {fileID: 6862863921110643695, guid: 0af7ad589c0935c47af283d04ba76ca6, type: 3}
   _bottle: {fileID: 360445432}
 --- !u!1001 &1414214243
 PrefabInstance:
@@ -17728,6 +17728,7 @@ MonoBehaviour:
   _rightHand: {fileID: 654892858}
   gameStarted: 0
   timeTillEnd: 60
+  timeSinceStart: 0
 --- !u!4 &1537870255
 Transform:
   m_ObjectHideFlags: 0
