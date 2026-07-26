@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject _fpCamera;
     public CinemachineInputAxisController _axisController;
     public DeathPPE _deathPPE;
+    public TextMeshProUGUI _text;
     [Header("Player Input")]
     public PlayerInput _playerInput;
     public PlayerMovement _playerMovement;

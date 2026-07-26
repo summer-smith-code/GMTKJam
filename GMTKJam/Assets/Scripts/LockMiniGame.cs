@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
@@ -41,10 +42,17 @@ public class LockMiniGame : MiniGameBase, IInteractable
         } else
         {
             Debug.Log("You need a key to interact with this lock.");
+            GameManager.Instance._text.text = "You need a key to unlock this door.";
+            StartCoroutine(Wait());
             GameManager.Instance._cameraMovement.LockCamera(false);
         }
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
+        GameManager.Instance._text.text = "";
+    }
     public override void Start()
     {
         // any set up code for the mini-game can go here
