@@ -40,12 +40,16 @@ public class Drawer : MonoBehaviour, IInteractable
                 Debug.Log("Moving back!");
                 _hasMoved = false;
                 _time = 0f;
-                source.PlayOneShot(closeSound);
+
+                if (source)
+                    source.PlayOneShot(closeSound);
             }
         }
         else
         {
-            source.PlayOneShot(openSound);
+            if (source)
+                source.PlayOneShot(openSound);
+
             Debug.Log("Moving forward!");
             _hasMoved = true;
             _time = 0f;

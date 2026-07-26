@@ -1573,6 +1573,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1934231925}
     m_Modifications:
+    - target: {fileID: 1784575351599115421, guid: 565b41738e3805243b37f15b8cf19ade, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211495552255160003, guid: 565b41738e3805243b37f15b8cf19ade, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6282963834678954688, guid: 565b41738e3805243b37f15b8cf19ade, type: 3}
       propertyPath: m_Name
       value: p_LockDoor
@@ -1615,6 +1623,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663712253916352634, guid: 565b41738e3805243b37f15b8cf19ade, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845432230416504142, guid: 565b41738e3805243b37f15b8cf19ade, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4673,10 +4685,10 @@ MonoBehaviour:
   boundary_minY: -1
   boundary_maxX: 0.5
   boundary_maxY: 0.5
-  maxSway: 0
-  swayAcceleration: 0
-  maxSwaySpeed: 5
-  swayCalculateTime: 1
+  maxSway: 0.5
+  swayAcceleration: 1
+  maxSwaySpeed: 1
+  swayCalculateTime: 0.5
 --- !u!1001 &501955926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14353,22 +14365,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AntidoteSpawner
   _spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1845847006}
+  - {fileID: 1863815095}
+  - {fileID: 742763827}
+  - {fileID: 2058725821}
   - {fileID: 725356494}
   - {fileID: 430409423}
   - {fileID: 720582934}
   - {fileID: 1110690197}
   - {fileID: 2101652059}
   - {fileID: 1640463209}
-  - {fileID: 0}
   - {fileID: 609763494}
   - {fileID: 1098752626}
   - {fileID: 1010891254}
   - {fileID: 938026882}
-  - {fileID: 0}
   - {fileID: 215611012}
   _antidoteIngredients:
   - {fileID: 219696076}
