@@ -112,6 +112,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1188438663445333109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3937573647498392131}
+  m_Layer: 0
+  m_Name: oven_e
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3937573647498392131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188438663445333109}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6445649508986311701}
+  m_Father: {fileID: 7861868089700653957}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457553135962054108
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 0
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &291138585770699585
 BoxCollider:
@@ -412,6 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 3
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &8642767460656770907
 BoxCollider:
@@ -573,6 +609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 0
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &4988995884082407706
 BoxCollider:
@@ -690,6 +728,138 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4571701961406817660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6445649508986311701}
+  - component: {fileID: 7975532857883587965}
+  - component: {fileID: 1511968796181214405}
+  - component: {fileID: 4355001442420601563}
+  - component: {fileID: 1567582546961233105}
+  m_Layer: 0
+  m_Name: ovenDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6445649508986311701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571701961406817660}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.3810167, y: 0.031195708, z: -0.7787146}
+  m_LocalScale: {x: 0.01, y: 0.009999999, z: 0.009999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7578124986395235854}
+  m_Father: {fileID: 3937573647498392131}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7975532857883587965
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571701961406817660}
+  m_Mesh: {fileID: 9220572749332186134, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
+--- !u!23 &1511968796181214405
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571701961406817660}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d424edd75d048304dbddda74a03b1a22, type: 2}
+  - {fileID: 2100000, guid: e7321ece0cda5264c989a856f5c85dd1, type: 2}
+  - {fileID: 2100000, guid: bce6ad38625693b45924dd8bf40ef327, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4355001442420601563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571701961406817660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f5bed885f872a409111712d3134acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
+  pivot: 2
+  source: {fileID: 0}
+  interactSounds: []
+  _hasObject: 0
+--- !u!65 &1567582546961233105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571701961406817660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 73.09993, y: 4.2145777, z: 58.999893}
+  m_Center: {x: -0.000022888184, y: 1.3085369, z: 29.499973}
 --- !u!1 &5172405250665142409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 0
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &3909832933769195762
 BoxCollider:
@@ -1299,6 +1471,39 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7372717990672220479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7861868089700653957}
+  m_Layer: 0
+  m_Name: sm_Oven
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7861868089700653957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372717990672220479}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3047129667340224471}
+  - {fileID: 3937573647498392131}
+  m_Father: {fileID: 5788258397731303910}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &7418435903009229716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 1
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &2369113979136728768
 BoxCollider:
@@ -1709,6 +1916,98 @@ Transform:
   - {fileID: 4614644469815277456}
   m_Father: {fileID: 7359248792077949649}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8510636902314049682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3047129667340224471}
+  - component: {fileID: 532798343818424245}
+  - component: {fileID: 1314248593400243778}
+  m_Layer: 0
+  m_Name: Oven
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3047129667340224471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510636902314049682}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7861868089700653957}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &532798343818424245
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510636902314049682}
+  m_Mesh: {fileID: 3205702657871549766, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
+--- !u!23 &1314248593400243778
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510636902314049682}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bce6ad38625693b45924dd8bf40ef327, type: 2}
+  - {fileID: 2100000, guid: d481d457523c029419c1bd6cf20529d6, type: 2}
+  - {fileID: 2100000, guid: d424edd75d048304dbddda74a03b1a22, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8995808887111826265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +2259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
   pivot: 1
+  source: {fileID: 0}
+  interactSounds: []
   _hasObject: 0
 --- !u!65 &4986264309578933471
 BoxCollider:
@@ -1982,119 +2283,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 35.912384, y: 4.763673, z: 53.900112}
   m_Center: {x: -17.956192, y: 1.3779186, z: 0.000007629396}
---- !u!1001 &7678723276279610478
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5788258397731303910}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      propertyPath: m_Name
-      value: sm_Oven
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -5484326404778121093, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7578124986395235854}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6188434709504547090, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4355001442420601563}
-    - targetCorrespondingSourceObject: {fileID: 6188434709504547090, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1567582546961233105}
-  m_SourcePrefab: {fileID: 100100000, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
---- !u!1 &4571701961406817660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6188434709504547090, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-  m_PrefabInstance: {fileID: 7678723276279610478}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4355001442420601563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4571701961406817660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f5bed885f872a409111712d3134acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KitchenDrawer
-  pivot: 2
-  _hasObject: 0
---- !u!65 &1567582546961233105
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4571701961406817660}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 73.09993, y: 4.2145777, z: 58.999893}
-  m_Center: {x: -0.000022888184, y: 1.3085369, z: 29.499973}
---- !u!4 &6445649508986311701 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5484326404778121093, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-  m_PrefabInstance: {fileID: 7678723276279610478}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7861868089700653957 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e42834a7062152e4da5d06562f6649f7, type: 3}
-  m_PrefabInstance: {fileID: 7678723276279610478}
-  m_PrefabAsset: {fileID: 0}

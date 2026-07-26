@@ -34,6 +34,7 @@ public class Drawer : MonoBehaviour, IInteractable
             {
                 Debug.Log("Destroying object!");
                 Destroy(this.transform.GetChild(1).gameObject);
+                Player._instance._magnesium = true;
                 _hasObject = false;
             } else
             {

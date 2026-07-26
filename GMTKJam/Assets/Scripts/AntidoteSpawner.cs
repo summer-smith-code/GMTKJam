@@ -36,7 +36,7 @@ public class AntidoteSpawner : MonoBehaviour
 
     public void Spawn(GameObject antidote, GameObject[] spawnPoints)
     {
-        int randomIndex = Random.Range(9, spawnPoints.Length);
+        int randomIndex = Random.Range(0, spawnPoints.Length);
         GameObject _antidote = Instantiate(antidote, spawnPoints[randomIndex].transform.position, Quaternion.identity);
         _antidote.transform.parent = spawnPoints[randomIndex].transform.parent;
     }

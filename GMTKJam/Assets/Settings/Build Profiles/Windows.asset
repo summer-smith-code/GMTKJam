@@ -26,6 +26,8 @@ MonoBehaviour:
     m_path: Assets/Scenes/House.unity
   - m_enabled: 1
     m_path: Assets/Scenes/LoseScreen.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/WinScreen.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

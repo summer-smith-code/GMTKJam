@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KitchenDrawer : MonoBehaviour, IInteractable
+public class WeaponCabinet : MonoBehaviour,  IInteractable
 {
     public enum DrawerPivot
     {
@@ -47,7 +47,7 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
             {
                 Debug.Log("Destroying object!");
                 Destroy(this.transform.parent.GetChild(1).gameObject);
-                Player._instance._lime = true;
+                Player._instance._antidoteBottle = true;
                 _hasObject = false;
             }
             else
@@ -56,7 +56,7 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
                 _hasMoved = false;
                 _time = 0f;
 
-                if(source)
+                if (source)
                     source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
             }
         }

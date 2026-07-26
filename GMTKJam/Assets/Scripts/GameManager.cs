@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public float timeTillEnd = 120f; // Determines the time in seconds until the game reaches its maximum difficulty level... (character dies)
 
-    private float timeSinceStart = 0f; // Tracks the amount of time in seconds since the game has started
+    public float timeSinceStart = 0f; // Tracks the amount of time in seconds since the game has started
     private float difficultyValue = 0f; // Value between 0 and 1 representing the current difficulty level
 
     private DifficultyLevel currentDifficultyLevel;

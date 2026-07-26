@@ -26,6 +26,7 @@ public class Shelf : MiniGameBase, IInteractable
                         if (ingredient != null)
                         {
                             Destroy(ingredient.gameObject);
+                            Player._instance._magnesium = true;
                         }
                     } else if (hit.collider.CompareTag("key"))
                         {
