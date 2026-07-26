@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -73,9 +74,16 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
 
         if (hasLost)
+        {
+            SceneManager.LoadScene("LoseScreen");
             Debug.Log("You lose!");
+        }
+
         else
+        {
+            SceneManager.LoadScene("WinScreen");
             Debug.Log("You win!");
+        }
 
         // Implement game over logic here... hasLost determines whether or not the player lost the game
     }
