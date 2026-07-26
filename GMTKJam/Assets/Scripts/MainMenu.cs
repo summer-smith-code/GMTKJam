@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (mainMenu != null) 
         ReturnMainMenu();
     }
 
@@ -49,6 +50,11 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
         creditsMenu.SetActive(false);
+    }
+
+    public void ReturnMenuScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
