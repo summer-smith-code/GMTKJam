@@ -54,12 +54,15 @@ public class KitchenDrawer : MonoBehaviour, IInteractable
                 Debug.Log("Moving back!");
                 _hasMoved = false;
                 _time = 0f;
-                source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
+
+                if(source)
+                    source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
             }
         }
         else
         {
-            source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
+            if (source)
+                source.PlayOneShot(interactSounds[Random.Range(0, interactSounds.Length)]);
 
             Debug.Log("Moving forward!");
             _hasMoved = true;

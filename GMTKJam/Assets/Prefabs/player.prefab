@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isSelected: 1
-  maxSlopeAngle: 60
+  maxSlopeAngle: 75
   groundCheck: {fileID: 4203880117706044179}
   groundLayer:
     serializedVersion: 2
@@ -382,6 +382,7 @@ MonoBehaviour:
   _camShiver: {fileID: 3346882439308640718}
   _handShiver: {fileID: 5106070812748544189}
   _RaycastPivot: {fileID: 8882393078688018364}
+  _cameraForward: {fileID: 8882393078688018364}
   _magnesium: 0
   _mint: 0
   _lime: 0

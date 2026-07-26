@@ -38,6 +38,9 @@ public class ObjectMovement : MonoBehaviour
 
     void Start()
     {
+        if (_cameraForward == null)
+            _cameraForward = Player._instance._cameraForward.transform;
+
         actualSpeed = _speed;
         swayDesire = Vector3.zero;
         _original = this.transform.localPosition;
