@@ -752,7 +752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc8fd814f530bc948a6a5e4e72d56836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  settingsMenu: {fileID: 0}
   mainMenu: {fileID: 1911932443}
   creditsMenu: {fileID: 690524900}
 --- !u!1 &259569280
@@ -2428,7 +2427,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 258192308}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: StartGameFirst
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
