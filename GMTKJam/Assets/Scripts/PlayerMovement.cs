@@ -64,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        //result = normal + (curve - normal) × percent
-
         _moveInput = _input.actions["Move"].ReadValue<Vector2>();
         Vector3 move = (_cameraTransform.forward * _moveInput.y + _cameraTransform.right * _moveInput.x);
         move.y = 0f; // Prevent vertical movement
@@ -82,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
                 currentFootstepTimer = footstepFreq;
             }
         }
-        //result = Mathf.Lerp(normal, curve, percent);
-        float currentSpeed = Mathf.Lerp(_speed, limpCurve.Evaluate(currentCurveEval) * (_speed * 0.8f), limpIntensity); //_speed + (limpCurve.Evaluate(currentCurveEval) - _speed) * limpIntensity;
+
+        float currentSpeed = Mathf.Lerp(_speed, limpCurve.Evaluate(currentCurveEval) * (_speed * 0.8f), limpIntensity);
 
         if (OnSlope()) // Slope detected... Move as if on slope
         {
