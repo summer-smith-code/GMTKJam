@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Anridote Antics
+  m_text: Antidote Antics
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9dfebb388ea9ce4894a70f27bdf32ff, type: 2}
   m_sharedMaterial: {fileID: -1207764063778557610, guid: c9dfebb388ea9ce4894a70f27bdf32ff, type: 2}
@@ -19411,9 +19411,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 26647999}
   - {fileID: 690524903}
   - {fileID: 1911932444}
-  - {fileID: 26647999}
   m_Father: {fileID: 258192307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
