@@ -23,7 +23,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
 
     public void Interact()
     {
-        if (Player._instance.hasKey)
+        if (Player._instance.hasKey && isLocked)
         {
             Debug.Log("Interacted with LockMiniGame");
             if (isLocked)
@@ -42,7 +42,7 @@ public class LockMiniGame : MiniGameBase, IInteractable
                 Debug.Log("Unlocked!");
                 GameManager.Instance._cameraMovement.LockCamera(false);
             }
-        } else
+        } else if(!Player._instance.hasKey && isLocked)
         {
             Debug.Log("You need a key to interact with this lock.");
             GameManager.Instance._text.text = "You need a key to unlock this door.";
