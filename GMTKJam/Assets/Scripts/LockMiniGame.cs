@@ -1,25 +1,39 @@
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class LockMiniGame : MiniGameBase, IInteractable
 {
     public bool LockCamera { get; set; } = true;
     [SerializeField] GameObject key;
+    [SerializeField] private HingeJoint _hingeJoint;
     private ObjectMovement _obj;
+    private bool isLocked = true;
 
     public override void EndGame()
     {
         OnEndGame();
+        _obj.isSelected = false;
+        _obj.ResetObject();
         isGameActive = false;
     }
 
     public void Interact()
     {
-        if (isGameActive)
+        Debug.Log("Interacted with LockMiniGame");
+        if (isLocked)
         {
-            EndGame();
-        } else
+            if (isGameActive)
+            {
+                EndGame();
+            }
+            else
+            {
+                StartGame();
+            }
+        }
+        else
         {
-            StartGame();
+            Debug.Log("Unlocked!");
         }
     }
 
@@ -35,9 +49,8 @@ public class LockMiniGame : MiniGameBase, IInteractable
         {
             _obj = key.GetComponent<ObjectMovement>();
             _obj.isSelected = true;
-            key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.forward * .5f;
+            key.transform.position = this.gameObject.transform.position + -this.gameObject.transform.right * .5f;
             key.transform.position = new Vector3(key.transform.position.x, GameManager.Instance._fpCamera.transform.position.y, key.transform.position.z);
-            key.transform.rotation = this.gameObject.transform.rotation;
         } else
         {
             // player cannot play without key!
@@ -53,16 +66,17 @@ public class LockMiniGame : MiniGameBase, IInteractable
     public void Click()
     {
         if (isGameActive)
-            if (_obj != null)
+        if (_obj != null)
             {
-                RaycastHit hit;
+            RaycastHit hit;
                 if (Physics.Raycast(_obj.transform.position, _obj.transform.forward, out hit))
                 {
+                    Debug.Log("Hit object: " + hit.collider.name);  
                     Lock _lock = hit.collider.GetComponent<Lock>();
                     if (_lock != null)
                     {
-                        // Unlock door here
-                        Destroy(_lock.gameObject);
+                        this.GetComponent<HingeJoint>().limits = _hingeJoint.limits;
+                        EndGame();
                     }
                 }
             }

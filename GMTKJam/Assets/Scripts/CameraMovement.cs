@@ -24,13 +24,20 @@ void Start()
         _inputController.enabled = !isLocked;
     }
 
-    public void LookAtObject(GameObject obj)
+    public void LookAtObject(GameObject obj, bool isReverse)
     {
         if (_inputController.enabled)
         {
             _inputController.enabled = false;
         }
-        _panTilt.PanAxis.Value = obj.transform.eulerAngles.y;
+        if (isReverse) {
+
+            _panTilt.PanAxis.Value = obj.transform.eulerAngles.x - 90;
+
+        } else
+        {
+            _panTilt.PanAxis.Value = obj.transform.eulerAngles.y;
+        }
 
 
         _panTilt.TiltAxis.Value = 0;
